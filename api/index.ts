@@ -1,5 +1,5 @@
 import express from 'express';
-import { createServer as createViteServer } from 'vite';
+
 import puppeteer from 'puppeteer-core';
 import chromium from '@sparticuz/chromium';
 import { GoogleGenAI } from '@google/genai';
@@ -300,7 +300,8 @@ async function startServer() {
     if (process.env.NODE_ENV !== 'production') {
       // Dev mode with Vite
       try {
-        const vite = await createViteServer({
+        const viteModule = await import('vite');
+        const vite = await viteModule.createServer({
           server: { middlewareMode: true },
           appType: 'spa',
         });
