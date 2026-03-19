@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Flame, ArrowRight, AlertTriangle, Skull, CheckCircle2, XCircle, Settings, Download, HeartHandshake, Zap, Mail, Star, ExternalLink, Share2, Copy, X } from 'lucide-react';
 import { domToPng } from 'modern-screenshot';
+import { Analytics } from '@vercel/analytics/react';
 
 const FEATURED_DEVS = [
   { name: 'Apple', url: 'apple.com', logo: 'https://www.apple.com/favicon.ico' },
@@ -912,6 +913,7 @@ export default function App() {
           </motion.div>
         )}
       </AnimatePresence>
+      <Analytics />
     </div>
   );
 }
